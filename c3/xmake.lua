@@ -5,13 +5,22 @@ task("sentr")
         os.exec(string.format("sentr '< %s >' 32 =", name))
     end)
 
-target("t1")
+target("main")
     set_kind("binary")
-    add_files("src/*.cpp")
+    add_files("src/SLinkNode.cpp", "src/main.cpp")
 
     before_run(function ()
         import("core.project.task")
         task.run("sentr", {}, "Main")
+    end)
+
+target("t2")
+    set_kind("binary")
+    add_files("src/SLinkNode.cpp", "src/t2.cpp")
+
+    before_run(function ()
+        import("core.project.task")
+        task.run("sentr", {}, "Delete Repetition")
     end)
 
 --

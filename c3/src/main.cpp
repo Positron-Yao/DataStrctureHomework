@@ -5,7 +5,7 @@ int main(int argc, char** argv) {
     size_t const size = 5;
     ElemType data[size] = {1, 2, 3, 4, 5};
     SLinkNode *head;
-    CreateListL(head, data, size);
+    CreateListR(head, data, size);
     printf("创建链表: \t");
     DispList(head);
 
@@ -17,7 +17,9 @@ int main(int argc, char** argv) {
     printf("删除第4位: \t");
     DispList(head);
 
+    Reverse(head);
+    printf("反转后: \t");
+    DispList(head);
     DestroyNodeList(head);
-    // std::cout << "hello world!" << std::endl;
     return 0;
 }

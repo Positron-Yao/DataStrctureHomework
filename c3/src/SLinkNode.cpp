@@ -1,5 +1,6 @@
 #include <cstdlib>
 #include <cstdio>
+#include <functional>
 #include "SLinkNode.h"
 
 void DispList(SLinkNode *L) {
@@ -25,6 +26,13 @@ void MakeNode(SLinkNode *&p, ElemType e) {
     p->next = NULL;
 }
 
+void TailNode(SLinkNode *L, SLinkNode *&t) {
+    t = L;
+    while (t->next != NULL) {
+        t = t->next;
+    }
+}
+
 void Append(SLinkNode *&L, ElemType e) {
     SLinkNode *p;
     MakeNode(p, e);
@@ -32,9 +40,7 @@ void Append(SLinkNode *&L, ElemType e) {
         L = p;
     } else {
         SLinkNode *q = L;
-        while (q->next != NULL) {
-            q = q->next;
-        }
+        TailNode(L, q);
         q->next = p;
     }
 }
@@ -135,10 +141,26 @@ int DelElem(SLinkNode *&L, size_t i) {
     return 1;
 }
 
+int DelIf(SLinkNode *&L, std::function<bool(SLinkNode*)> f) {
+    if (L == NULL || L->next == NULL) return 0;
+    SLinkNode *pre = L, *p = pre->next;
+    while (p != NULL) {
+        if (f(p)) {
+            pre->next = p->next;
+            free(p);
+            p = pre->next;
+        } else {
+            pre = pre->next;
+            p = pre->next;
+        }
+    }
+    return 1;
+}
+
 int CreateListL(SLinkNode *&L, ElemType *arr, size_t n) {
     InitList(L);
     for (size_t i = 0; i < n; i++) {
-        Append(L, arr[i]);
+        Prepend(L, arr[i]);
     }
     return 1;
 }
@@ -146,7 +168,25 @@ int CreateListL(SLinkNode *&L, ElemType *arr, size_t n) {
 int CreateListR(SLinkNode *&L, ElemType *arr, size_t n) {
     InitList(L);
     for (size_t i = 0; i < n; i++) {
-        Prepend(L, arr[i]);
+        Append(L, arr[i]);
     }
     return 1;
 }
+
+SLinkNode *_ReverseHelper(SLinkNode *p) {
+    if (p == NULL || p->next == NULL) {
+        return p;
+    }
+    SLinkNode *rest = _ReverseHelper(p->next);
+    SLinkNode *tail = rest;
+    TailNode(rest, tail);
+    tail->next = p;
+    p->next = NULL;
+    return rest;
+}
+
+void Reverse(SLinkNode *&L) {
+    if (L == NULL || L->next == NULL) return;
+    L->next = _ReverseHelper(L->next);
+}
+
