@@ -5,7 +5,7 @@ void InitList(SqList &L) {
     L.length = 0;
 }
 
-void DestroyList(SqList L) {}
+void DestroyList(SqList &L) {}
 
 size_t GetLength(SqList const &L) {
     return L.length;

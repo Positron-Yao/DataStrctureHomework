@@ -5,6 +5,24 @@ task("sentr")
         os.exec(string.format("sentr '< %s >' 50 =", name))
     end)
 
+target("t1")
+    set_kind("binary")
+    add_files("src/SqList.cpp", "src/t1.cpp")
+
+    before_run(function ()
+        import("core.project.task")
+        task.run("sentr", {}, "OrderedSqList Delete Duplicate")
+    end)
+
+target("t2")
+    set_kind("binary")
+    add_files("src/SqList.cpp", "src/t2.cpp")
+
+    before_run(function ()
+        import("core.project.task")
+        task.run("sentr", {}, "OrderedSqList Merge")
+    end)
+
 target("t3")
     set_kind("binary")
     add_files("src/SLinkNode.cpp", "src/t3.cpp")

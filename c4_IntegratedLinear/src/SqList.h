@@ -10,7 +10,7 @@ typedef struct {
 } SqList;
 
 void InitList(SqList &L);
-void DestroyList(SqList L);
+void DestroyList(SqList &L);
 size_t GetLength(SqList const &L);
 int GetElem(SqList const &L, size_t i, ElemType &e);
 size_t Locate(SqList const &L, ElemType const &e);
