@@ -5,13 +5,13 @@ task("sentr")
         os.exec(string.format("sentr '< %s >' 50 =", name))
     end)
 
-target("main")
+target("t3")
     set_kind("binary")
-    add_files("src/main.cpp")
+    add_files("src/SLinkNode.cpp", "src/t3.cpp")
 
     before_run(function ()
         import("core.project.task")
-        task.run("sentr", {}, "Main")
+        task.run("sentr", {}, "Delete Range")
     end)
 
 
