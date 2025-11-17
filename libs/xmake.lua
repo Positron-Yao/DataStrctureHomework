@@ -1,18 +1,8 @@
 add_rules("mode.debug", "mode.release")
 
-target("slinknode")
+target("dsh")
     set_kind("static")
-    add_files("src/SLinkNode.cpp")
-    add_includedirs("include", {public = true})
-
-target("sqlist")
-    set_kind("static")
-    add_files("src/SqList.cpp")
-    add_includedirs("include", {public = true})
-
-target("sqstack")
-    set_kind("static")
-    add_files("src/SqStack.cpp")
+    add_files("src/*.cpp")
     add_includedirs("include", {public = true})
 
 --

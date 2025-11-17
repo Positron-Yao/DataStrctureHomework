@@ -1,13 +1,13 @@
 add_rules("mode.debug", "mode.release")
 
-task("sentr")
-    on_run(function (name)
-        os.exec(string.format("sentr '< %s >' 50 =", name))
-    end)
+includes("~/.xmake")
+includes("../libs")
 
 target("main")
     set_kind("binary")
-    add_files("src/*.cpp")
+    add_files("src/main.cpp")
+    add_links("dsh")
+    add_deps("dsh")
 
     before_run(function ()
         import("core.project.task")

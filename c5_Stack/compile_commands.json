@@ -1,0 +1,26 @@
+[
+{
+  "directory": "/home/ely/desktop/DataStructure/homework/c5_Stack",
+  "arguments": ["/usr/sbin/g++", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-I../libs/include", "-DNDEBUG", "-o", "build/.objs/dsh/linux/x86_64/release/__/libs/src/SqList.cpp.o", "../libs/src/SqList.cpp"],
+  "file": "../libs/src/SqList.cpp"
+},
+{
+  "directory": "/home/ely/desktop/DataStructure/homework/c5_Stack",
+  "arguments": ["/usr/sbin/g++", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-I../libs/include", "-DNDEBUG", "-o", "build/.objs/dsh/linux/x86_64/release/__/libs/src/LinkStack.cpp.o", "../libs/src/LinkStack.cpp"],
+  "file": "../libs/src/LinkStack.cpp"
+},
+{
+  "directory": "/home/ely/desktop/DataStructure/homework/c5_Stack",
+  "arguments": ["/usr/sbin/g++", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-I../libs/include", "-DNDEBUG", "-o", "build/.objs/dsh/linux/x86_64/release/__/libs/src/SLinkNode.cpp.o", "../libs/src/SLinkNode.cpp"],
+  "file": "../libs/src/SLinkNode.cpp"
+},
+{
+  "directory": "/home/ely/desktop/DataStructure/homework/c5_Stack",
+  "arguments": ["/usr/sbin/g++", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-I../libs/include", "-DNDEBUG", "-o", "build/.objs/dsh/linux/x86_64/release/__/libs/src/SqStack.cpp.o", "../libs/src/SqStack.cpp"],
+  "file": "../libs/src/SqStack.cpp"
+},
+{
+  "directory": "/home/ely/desktop/DataStructure/homework/c5_Stack",
+  "arguments": ["/usr/sbin/g++", "-c", "-m64", "-fvisibility=hidden", "-fvisibility-inlines-hidden", "-O3", "-I../libs/include", "-DNDEBUG", "-o", "build/.objs/main/linux/x86_64/release/src/main.cpp.o", "src/main.cpp"],
+  "file": "src/main.cpp"
+}]
