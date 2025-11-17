@@ -1,43 +1,14 @@
 add_rules("mode.debug", "mode.release")
 
-add_linkdirs("../libs/build/linux/x86_64/release")
-add_includedirs("../libs/include")
+target("slinknode")
+    set_kind("static")
+    add_files("src/SLinkNode.cpp")
+    add_includedirs("include", {public = true})
 
-task("sentr")
-    on_run(function (name)
-        os.exec(string.format("sentr '< %s >' 50 =", name))
-    end)
-
-target("t1")
-    set_kind("binary")
-    add_files("src/t1.cpp")
-    add_links("slinknode", "sqlist")
-
-    before_run(function ()
-        import("core.project.task")
-        task.run("sentr", {}, "OrderedSqList Delete Duplicate")
-    end)
-
-target("t2")
-    set_kind("binary")
-    add_files("src/t2.cpp")
-    add_links("slinknode", "sqlist")
-
-    before_run(function ()
-        import("core.project.task")
-        task.run("sentr", {}, "OrderedSqList Merge")
-    end)
-
-target("t3")
-    set_kind("binary")
-    add_files("src/t3.cpp")
-    add_links("slinknode", "sqlist")
-
-    before_run(function ()
-        import("core.project.task")
-        task.run("sentr", {}, "Delete Range")
-    end)
-
+target("sqlist")
+    set_kind("static")
+    add_files("src/SqList.cpp")
+    add_includedirs("include", {public = true})
 
 --
 -- If you want to known more usage about xmake, please see https://xmake.io
