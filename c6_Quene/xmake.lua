@@ -1,8 +1,40 @@
 add_rules("mode.debug", "mode.release")
 
-target("c6_Quene")
+includes("~/.xmake")
+includes("../libs")
+
+target("t1")
     set_kind("binary")
-    add_files("src/*.cpp")
+    add_files("src/t1.cpp")
+    add_links("dsh")
+    add_deps("dsh")
+
+    before_run(function(target)
+        import("core.project.task")
+        task.run("sentr", {}, "Quene Basic")
+    end)
+
+target("t2")
+    set_kind("binary")
+    add_files("src/t2.cpp")
+    add_links("dsh")
+    add_deps("dsh")
+
+    before_run(function(target)
+        import("core.project.task")
+        task.run("sentr", {}, "Delete Tail")
+    end)
+
+target("maze")
+    set_kind("binary")
+    add_files("src/maze.cpp")
+    add_links("dsh")
+    add_deps("dsh")
+
+    before_run(function(target)
+        import("core.project.task")
+        task.run("sentr", {}, "Maze")
+    end)
 
 --
 -- If you want to known more usage about xmake, please see https://xmake.io
